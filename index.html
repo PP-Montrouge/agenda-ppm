@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light dark">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Agenda — Place Publique Montrouge</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Source+Sans+3:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
+    color-scheme: light dark;
     --yellow-deep: #e6a800;
     --yellow-main: #fff100;
     --yellow-light: #ffe082;
@@ -17,11 +18,15 @@
     --brown: #3e2a00;
     --text: #2c1f00;
     --muted: #7a6030;
+    --bg-page: #ffffff;
+    --bg-card: #ffffff;
+    --green: #aafb93;
+    --blue: #83ffff;
   }
 
   body {
-    font-family: 'Source Sans 3', sans-serif;
-    background: white;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: var(--bg-page);
     color: var(--text);
     min-height: 100vh;
     padding: 2rem 1rem;
@@ -54,9 +59,9 @@
   }
 
   .header h1 {
-    font-family: 'Source Sans 3', sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 1.6rem;
-    font-weight: 500;
+    font-weight: 700;
     color: black;
     line-height: 1.2;
     margin-bottom: 0.35rem;
@@ -85,7 +90,7 @@
 
   /* SUBSCRIBE SECTION */
   .subscribe {
-    background: white;
+    background: var(--bg-card);
     border-radius: 0 0 2px 2px;
     border: 1px solid var(--yellow-main);
     border-top: 3px solid var(--yellow-main);
@@ -93,9 +98,11 @@
   }
 
   .subscribe-title {
-    font-family: 'Source Sans 3', sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 1.1rem;
-    font-weight: 500;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
     color: var(--brown);
     margin-bottom: 0.5rem;
   }
@@ -140,16 +147,16 @@
   }
 
   .btn-apple {
-    background: white;
-    color: var(--brown);
-    border: 1.5px solid var(--yellow-main);
+    background: var(--blue);
+    color: #111111;
+    border: 1.5px solid var(--blue);
   }
 
   .btn-apple:hover {
-    border-color: var(--yellow-main);
-    background: var(--yellow-pale);
+    background: var(--blue);
+    border-color: var(--blue);
     transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(230,168,0,0.15);
+    box-shadow: 0 6px 20px rgba(131,255,255,0.35);
   }
 
   .btn-icon {
@@ -197,6 +204,49 @@
     line-height: 1.6;
   }
 
+  /* ── DARK MODE ─────────────────────────────────────────── */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text:        #eeeeee; /* clean light — readable on charcoal   */
+      --muted:       #b0b0b0; /* 5.5:1 on dark bg — AA pass           */
+      --brown:       #111111; /* dark text for yellow surfaces        */
+      --bg-page:     #111111; /* neutral charcoal                     */
+      --bg-card:     #1a1a1a; /* slightly lighter card surface        */
+      --yellow-pale: #2a2a1a; /* hover tint on dark card              */
+    }
+
+    /* Header stays full yellow — brand anchor, unchanged */
+
+    .calendar-section {
+      background: var(--bg-page);
+      border-color: var(--yellow-deep);
+    }
+
+    .subscribe {
+      border-color:      var(--yellow-deep);
+      border-top-color:  var(--yellow-main);
+    }
+
+    .subscribe-title {
+      color: var(--yellow-main); /* yellow on dark bg — 14:1 contrast */
+    }
+
+    /* Google button: yellow bg, very dark text — fine as-is */
+    .btn-google:hover {
+      box-shadow: 0 6px 20px rgba(230,168,0,0.25);
+    }
+
+    /* Apple button: brand blue bg stays, darken icon bg slightly */
+    .btn-apple .btn-icon {
+      background: rgba(0,0,0,0.10);
+    }
+
+    .footer-note {
+      border-color: var(--yellow-deep);
+    }
+  }
+
+  /* ── RESPONSIVE ─────────────────────────────────────────── */
   @media (max-width: 600px) {
     .header { padding: 1.5rem; }
     .header-logo { max-height: 85px; }
