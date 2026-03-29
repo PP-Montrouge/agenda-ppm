@@ -215,7 +215,9 @@
       --yellow-pale: #2a2a1a; /* hover tint on dark card              */
     }
 
-    /* Header stays full yellow — brand anchor, unchanged */
+    /* Header stays full yellow — force black text, never let dark mode flip it */
+    .header h1,
+    .header p { color: black; }
 
     .calendar-section {
       background: var(--bg-page);
