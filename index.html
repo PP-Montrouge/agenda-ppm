@@ -37,42 +37,20 @@
     background: var(--yellow-main);
     border-radius: 2px 2px 0 0;
     padding: 2rem 2.5rem 1.75rem;
-    position: relative;
-    overflow: hidden;
   }
 
-  .header::before {
-    content: '';
-    position: absolute;
-    top: -40px; right: -40px;
-    width: 180px; height: 180px;
-    border-radius: 50%;
-    border: 1px solid rgba(62,42,0,0.1);
-  }
-
-  .logo-line {
+  .header-inner {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
+    justify-content: space-between;
+    gap: 1.5rem;
   }
 
-  .logo-mark {
-    width: 30px; height: 30px;
-    border: 2px solid var(--brown);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
+  .header-logo {
+    max-height: 120px;
+    width: auto;
+    object-fit: contain;
     flex-shrink: 0;
-  }
-
-  .logo-mark svg { width: 13px; height: 13px; fill: var(--brown); }
-
-  .org-name {
-    font-weight: 500;
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--brown);
   }
 
   .header h1 {
@@ -221,6 +199,7 @@
 
   @media (max-width: 600px) {
     .header { padding: 1.5rem; }
+    .header-logo { max-height: 85px; }
     .subscribe { padding: 1.5rem; }
     .btn-row { flex-direction: column; }
     .calendar-section iframe { height: 420px; }
@@ -231,16 +210,13 @@
 <div class="page">
 
   <div class="header">
-    <div class="logo-line">
-      <div class="logo-mark">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M19 4h-1V2h-2v2H8V2H6v2H5C3.9 4 3 4.9 3 6v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
-        </svg>
+    <div class="header-inner">
+      <div>
+        <h1>Notre Agenda</h1>
+        <p>Tous nos événements en un coup d'œil</p>
       </div>
-      <span class="org-name">Place Publique Montrouge</span>
+      <img src="assets/logo-ppm.jpg" alt="Place Publique Montrouge" class="header-logo">
     </div>
-    <h1>Notre Agenda</h1>
-    <p>Tous nos événements en un coup d'œil</p>
   </div>
 
   <div class="calendar-section">
